@@ -8,6 +8,7 @@ ENV PATH /google-cloud-sdk/bin:$PATH
 # Google SDK
 RUN apk --no-cache add \
         curl \
+        unzip \
         python \
         py-crcmod \
         bash \
