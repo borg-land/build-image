@@ -4,9 +4,6 @@ ARG CLOUD_SDK_VERSION=258.0.0
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV PATH /google-cloud-sdk/bin:$PATH
 
-# Tools
-RUN apt-get update && apt-get install curl wget net-tools unzip gnupg -y && \
-    rm -rf /var/lib/apt/lists/*
 
 # Google SDK
 RUN apk --no-cache add \
