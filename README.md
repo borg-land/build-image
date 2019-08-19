@@ -3,8 +3,11 @@
 ## Hello
 
 This is Upo's CI Build image based on Alpine with Hashicorp Tools and Google SDK.
+## How to use the Image:
 
-Applications:
+`docker pull quay.io/upodroid/build-image`
+
+### Applications:
 
 - gcloud
 - terraform
