@@ -1,5 +1,8 @@
 FROM alpine:3.10
 LABEL description="A Slim Docker Image with Google SDK + Kubectl + Hashicorp Tools."
+LABEL "maintainer"="Borg <cy@borg.dev>"
+LABEL "terraform-version"="0.12.6"
+
 
 # Google SDK
 # https://github.com/GoogleCloudPlatform/cloud-sdk-docker/blob/master/alpine/Dockerfile
