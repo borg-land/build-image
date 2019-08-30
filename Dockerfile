@@ -9,11 +9,10 @@ ARG CLOUD_SDK_VERSION="259.0.0"
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV PATH /google-cloud-sdk/bin:$PATH
 RUN apk --no-cache add \
-        make python-dev python-pip \
+        make python python-dev py-pip build-base \
         curl \
         unzip \
         jq \
-        python \
         py-crcmod \
         bash \
         libc6-compat \
