@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM python:2.7-alpine
 LABEL description="A Slim Docker Image with Google SDK + Kubectl + Hashicorp Tools."
 LABEL "maintainer"="Borg <cy@borg.dev>"
 
@@ -9,7 +9,6 @@ ARG CLOUD_SDK_VERSION="259.0.0"
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV PATH /google-cloud-sdk/bin:$PATH
 RUN apk --no-cache add \
-        make python python-dev py-pip build-base \
         curl \
         unzip \
         jq \
