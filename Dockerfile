@@ -4,7 +4,7 @@ LABEL "maintainer"="Borg <cy@borg.dev>"
 
 # Google SDK
 # https://github.com/GoogleCloudPlatform/cloud-sdk-docker/blob/master/alpine/Dockerfile
-ARG CLOUD_SDK_VERSION="259.0.0"
+ARG CLOUD_SDK_VERSION="265.0.0"
 
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV PATH /google-cloud-sdk/bin:/root/.local/bin:$PATH
