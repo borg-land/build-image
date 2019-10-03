@@ -10,6 +10,7 @@ ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV PATH /google-cloud-sdk/bin:/root/.local/bin:$PATH
 RUN apk --no-cache add \
         make python-dev py-pip build-base \
+        util-linux \
         curl \
         unzip \
         jq \
