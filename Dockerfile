@@ -1,17 +1,17 @@
 FROM alpine:3.10
 LABEL description="A Slim Docker Image with Google SDK + Kubectl + Hashicorp Tools."
 LABEL "maintainer"="Borg <cy@borg.dev>"
-LABEL "terraform version"="0.12.10"
-LABEL "kubectl version"="v1.16.0"
+LABEL "terraform version"="0.12.13"
+LABEL "kubectl version"="v1.16.2"
 
 
 # Google SDK
 # https://github.com/GoogleCloudPlatform/cloud-sdk-docker/blob/master/alpine/Dockerfile
-ARG CLOUD_SDK_VERSION="266.0.0"
-ARG TERRAFORM_VERSION="0.12.10"
-ARG PACKER_VERSION="1.4.4"
+ARG CLOUD_SDK_VERSION="270.0.0"
+ARG TERRAFORM_VERSION="0.12.13"
+ARG PACKER_VERSION="1.4.5"
 ARG VAULT_VERSION="1.2.3"
-ARG KUBECTL_VERSION="v1.16.0"
+ARG KUBECTL_VERSION="v1.16.2"
 
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV PATH /google-cloud-sdk/bin:$PATH
