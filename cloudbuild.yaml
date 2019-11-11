@@ -7,7 +7,7 @@ steps:
 # Tag an image
 - name: gcr.io/cloud-builders/docker
   args: ['tag',
-    'gcr.io/$PROJECT_ID/terraform:oldtag',
+    'gcr.io/$PROJECT_ID/terraform:latest',
     'gcr.io/$PROJECT_ID/terraform:$TAG_NAME']
 
 # my-image is pushed to Container Registry
