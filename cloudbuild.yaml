@@ -2,16 +2,16 @@ steps:
 
 # Uses the docker build step to build an image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/terraform:latest', '.']
+  args: ['build', '-t', 'eu.gcr.io/$PROJECT_ID/terraform:latest', '.']
 
 # Tag an image
 - name: gcr.io/cloud-builders/docker
   args: ['tag',
-    'gcr.io/$PROJECT_ID/terraform:latest',
-    'gcr.io/$PROJECT_ID/terraform:$TAG_NAME']
+    'eu.gcr.io/$PROJECT_ID/terraform:latest',
+    'eu.gcr.io/$PROJECT_ID/terraform:$TAG_NAME']
 
 # my-image is pushed to Container Registry
 images: [
-    'gcr.io/$PROJECT_ID/terraform:latest',
-    'gcr.io/$PROJECT_ID/terraform:$TAG_NAME'
+    'eu.gcr.io/$PROJECT_ID/terraform:latest',
+    'eu.gcr.io/$PROJECT_ID/terraform:$TAG_NAME'
 ]
