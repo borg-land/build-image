@@ -7,9 +7,9 @@ LABEL "kubectl version"="v1.16.2"
 
 # Google SDK
 # https://github.com/GoogleCloudPlatform/cloud-sdk-docker/blob/master/alpine/Dockerfile
-ARG CLOUD_SDK_VERSION="272.0.0"
-ARG TERRAFORM_VERSION="0.12.16"
-ARG PACKER_VERSION="1.4.5"
+ARG CLOUD_SDK_VERSION="274.0.0"
+ARG TERRAFORM_VERSION="0.12.18"
+ARG PACKER_VERSION="1.5.0"
 ARG VAULT_VERSION="1.3.0"
 ARG KUBECTL_VERSION="v1.16.2"
 
@@ -17,6 +17,7 @@ ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV PATH /google-cloud-sdk/bin:$PATH
 RUN apk --no-cache add \
         curl \
+        make \
         unzip \
         jq \
         python \
