@@ -54,4 +54,4 @@ RUN apk --no-cache add \
     curl https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip -o /tmp/vault.zip && \
     cd /tmp && unzip '*.zip' && \
     mv terraform packer vault /usr/local/bin && rm -rf /tmp/*    
-    pip install pylint yamllin
+    pip install pylint yamllint
