@@ -12,16 +12,26 @@ ARG TERRAFORM_VERSION="0.12.18"
 ARG PACKER_VERSION="1.5.0"
 ARG VAULT_VERSION="1.3.0"
 ARG KUBECTL_VERSION="v1.16.2"
-
+ENV PYTHONUNBUFFERED=1
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV PATH /google-cloud-sdk/bin:$PATH
+
+RUN echo "**** install Python ****" && \
+    apk add --no-cache python3 && \
+    if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi && \
+    \
+    echo "**** install pip ****" && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --no-cache --upgrade pip setuptools wheel && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
+    
 RUN apk --no-cache add \
         curl \
         make \
         unzip \
         jq \
-        python \
-        py-crcmod \
+        py3-crcmod \
         bash \
         libc6-compat \
         openssh-client \
@@ -40,4 +50,6 @@ RUN apk --no-cache add \
     curl https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip  -o /tmp/packer.zip && \
     curl https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip -o /tmp/vault.zip && \
     cd /tmp && unzip '*.zip' && \
-    mv terraform packer vault /usr/local/bin && rm -rf /tmp/* 
+    mv terraform packer vault /usr/local/bin && rm -rf /tmp/* && \
+    pip install --user yamllint pylint
+    
