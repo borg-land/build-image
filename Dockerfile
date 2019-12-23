@@ -24,7 +24,10 @@ RUN echo "**** install Python ****" && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --no-cache --upgrade pip setuptools wheel && \
-    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+    apk add --no-cache --virtual .build-deps python3-dev gcc build-base \
+    && pip install pylint yamllint \
+    && apk del .build-deps
     
 RUN apk --no-cache add \
         curl \
@@ -50,6 +53,4 @@ RUN apk --no-cache add \
     curl https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip  -o /tmp/packer.zip && \
     curl https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip -o /tmp/vault.zip && \
     cd /tmp && unzip '*.zip' && \
-    mv terraform packer vault /usr/local/bin && rm -rf /tmp/* && \
-    pip install --user yamllint pylint
-    
+    mv terraform packer vault /usr/local/bin && rm -rf /tmp/*    
