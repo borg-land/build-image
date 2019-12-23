@@ -1,7 +1,7 @@
 FROM alpine:3.10
 LABEL description="A Slim Docker Image with Google SDK + Kubectl + Hashicorp Tools."
 LABEL "maintainer"="Borg <cy@borg.dev>"
-LABEL "terraform version"="0.12.16"
+LABEL "terraform version"="0.12.18"
 LABEL "kubectl version"="v1.16.2"
 
 
