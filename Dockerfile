@@ -7,7 +7,7 @@ LABEL "kubectl version"="v1.16.2"
 
 # Google SDK
 # https://github.com/GoogleCloudPlatform/cloud-sdk-docker/blob/master/alpine/Dockerfile
-ARG CLOUD_SDK_VERSION="274.0.0"
+ARG CLOUD_SDK_VERSION="390.0.0"
 ARG TERRAFORM_VERSION="0.12.18"
 ARG PACKER_VERSION="1.5.0"
 ARG VAULT_VERSION="1.3.0"
